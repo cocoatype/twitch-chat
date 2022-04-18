@@ -10,10 +10,12 @@ public struct ChatMessage {
         self.channel = channel
         self.text = text
         self.sender = sender
+        self.senderColor = message.color
     }
 
     public let channel: String
     public let sender: String
+    public let senderColor: String?
     public let text: String
 }
 
@@ -27,5 +29,9 @@ private extension Message {
         } else {
             return nil
         }
+    }
+
+    var color: String? {
+        tags["color"]
     }
 }
