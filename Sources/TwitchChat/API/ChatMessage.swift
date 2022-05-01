@@ -8,12 +8,14 @@ public struct ChatMessage {
         else { return nil }
 
         self.channel = channel
+        self.emotes = message.emotes
         self.text = text
         self.sender = sender
         self.senderColor = message.color
     }
 
     public let channel: String
+    public let emotes: [Emote]
     public let sender: String
     public let senderColor: String?
     public let text: String
@@ -33,5 +35,10 @@ private extension Message {
 
     var color: String? {
         tags["color"]
+    }
+
+    var emotes: [Emote] {
+        guard let emoteString = tags["emotes"] else { return [] }
+        return Emote.emotes(from: emoteString)
     }
 }
