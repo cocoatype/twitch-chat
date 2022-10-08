@@ -26,7 +26,7 @@ let chat = TwitchChat(token: "my-user-token", name: "cocoatype")
 ```
 
 After creating an instance of `TwitchChat`, you can receive messages by reading the asynchronous `messages` property:
-```
+```swift
 for try await message in chat.messages {
   // display messages
 }
