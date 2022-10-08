@@ -6,6 +6,10 @@ TwitchChat is a Swift library for consuming chat from Twitch streams.
 
 The only supported method of installation for TwitchChat is Apple’s Swift Package Manager. To add TwitchChat to an Xcode project, follow Apple’s [tutorial on adding package dependencies to your app](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app). The URL to use for installation is the GitHub repo for TwitchChat: [https://github.com/cocoatype/twitch-chat](https://github.com/cocoatype/twitch-chat).
 
+When adding TwitchChat as a package dependency, be sure to check only the TwitchChat library and not the TwitchChatClient example project:
+
+![Screenshot of Xcode showing which checkbox to check when adding the TwitchChat package](README/add-library.png)
+
 If using TwitchChat as a sub-package of another package, you can add it to your `Package.swift` file’s `dependencies` like so:
 
 ```swift
