@@ -21,7 +21,12 @@ public struct Emote {
         guard parts.count == 2, let emoteID = parts.first, let emoteRangesString = parts.last else { return [] }
         let emoteRanges = emoteRangesString.split(separator: ",").compactMap { emoteRangeString -> ClosedRange<Int>? in
             let rangeIndexStrings = emoteRangeString.split(separator: "-")
-            guard rangeIndexStrings.count == 2, let rangeStartIndexString = rangeIndexStrings.first, let rangeEndIndexString = rangeIndexStrings.last, let rangeStartIndex = Int(rangeStartIndexString), let rangeEndIndex = Int(rangeEndIndexString) else { return nil }
+            guard rangeIndexStrings.count == 2,
+                  let rangeStartIndexString = rangeIndexStrings.first,
+                  let rangeEndIndexString = rangeIndexStrings.last,
+                  let rangeStartIndex = Int(rangeStartIndexString),
+                  let rangeEndIndex = Int(rangeEndIndexString)
+            else { return nil }
             return rangeStartIndex...rangeEndIndex
         }
         return emoteRanges.map { Emote(identifier: String(emoteID), range: $0) }

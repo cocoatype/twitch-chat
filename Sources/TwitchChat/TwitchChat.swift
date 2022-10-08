@@ -16,6 +16,7 @@ public final class TwitchChat {
                         print(message)
                     }
                 }
+                continuation.finish()
             }
         }
     }
