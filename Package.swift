@@ -4,24 +4,34 @@ import PackageDescription
 
 let package = Package(
   name: "TwitchChat",
-  platforms: [.macOS(.v12)],
+  platforms: [.macOS(.v12),.iOS(.v15)],
   products: [
     .executable(
       name: "TwitchChatClient",
-      targets: ["TwitchChatClient"]),
+      targets: ["TwitchChatClient"]
+    ),
     .library(
       name: "TwitchChat",
-      targets: ["TwitchChat"]),
+      targets: ["TwitchChat"]
+    ),
+    .library(
+        name: "TwitchChatAppKit",
+        targets: ["TwitchChatAppKit"]
+    )
   ],
   targets: [
     .executableTarget(
       name: "TwitchChatClient",
-      dependencies: ["TwitchChat"]),
+      dependencies: ["TwitchChat"]
+    ),
+    .target(name: "TwitchChat"),
     .target(
-      name: "TwitchChat",
-      dependencies: []),
+        name: "TwitchChatAppKit",
+        dependencies: ["TwitchChat"]
+    ),
     .testTarget(
       name: "TwitchChatTests",
-      dependencies: ["TwitchChat"]),
+      dependencies: ["TwitchChat"]
+    ),
   ]
 )

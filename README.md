@@ -38,6 +38,17 @@ A message contains several properties: the sender, the sender’s preferred chat
 
 The array of emotes included in each message includes a URL for downloading the image associated with the emote and a range of characters to replace when displaying the emote.
 
+### TwitchChatAppKit
+
+TwitchChatAppKit is an optional package that provides message rendering capabilities in AppKit-based macOS apps. It provides one type, `ChatMessageRenderer`, which can be used to create attributed strings with included emotes. It can be used like so:
+
+```swift
+for try await message in chat.messages {
+  let messageString = await ChatMessageRenderer.attributedString(for: message, font: Self.font)
+  messageTextField.attributedStringValue = messageString
+}
+```
+
 ## Contributing
 
 TwitchChat is not accepting code contributions at this time. Please feel free to file any issues and bug reports you may come across. 
